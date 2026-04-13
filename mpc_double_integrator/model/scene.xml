@@ -1,2 +1,16 @@
 <mujoco>
+    <option timestep="0.002" />
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
+        <geom type="plane" size="5 5 0.1" rgba=".9 .9 .9 1"/>
+        
+        <body name="puck" pos="0 0 0.1">
+            <joint name="slide" type="slide" axis="1 0 0"/>
+            <geom type="box" size="0.1 0.1 0.1" rgba="0 0.7 0.7 1" mass="1"/>
+        </body>
+    </worldbody>
+    
+    <actuator>
+        <motor joint="slide" name="force_motor" ctrlrange="-10 10"/>
+    </actuator>
 </mujoco>
